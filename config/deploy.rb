@@ -30,7 +30,7 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.2-p290@tugowa gemset
-default_environment["PATH"]         = "--"
+default_environment["PATH"]         = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/tugowa/.rvm/bin"
 default_environment["GEM_HOME"]     = "--"
 default_environment["GEM_PATH"]     = "--"
 default_environment["RUBY_VERSION"] = "ruby-1.9.3-p0"
