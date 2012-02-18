@@ -35,7 +35,7 @@ default_environment["GEM_HOME"]     = "--"
 default_environment["GEM_PATH"]     = "--"
 default_environment["RUBY_VERSION"] = "ruby-1.9.3-p0"
 
-default_run_options[:shell] = 'bash'
+#default_run_options[:shell] = 'bash'
 
 namespace :deploy do
   desc "Deploy your application"
