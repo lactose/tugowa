@@ -11,6 +11,7 @@ set :deploy_to,       "/home/tugowa/www"
 set :normalize_asset_timestamps, false
 
 set :user,            "tugowa"
+set :port,            7479
 set :group,           "tugowa"
 set :use_sudo,        false
 
