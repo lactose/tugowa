@@ -2,7 +2,7 @@
 require "bundler/capistrano"
 
 set :scm,             :git
-set :repository,      "ssh://tugowa@69.164.213.39:7479/home/tugowa/www"
+set :repository,      "ssh://tugowa@tugowa.com:7479/home/tugowa/www"
 set :branch,          "origin/master"
 set :migrate_target,  :current
 set :ssh_options,     { :forward_agent => true }
@@ -14,9 +14,9 @@ set :user,            "tugowa"
 set :group,           "tugowa"
 set :use_sudo,        false
 
-role :web,    "69.164.213.39"
-role :app,    "69.164.213.39"
-role :db,     "69.164.213.39", :primary => true
+role :web,    "tugowa.com"
+role :app,    "tugowa.com"
+role :db,     "tugowa.com", :primary => true
 
 set(:latest_release)  { fetch(:current_path) }
 set(:release_path)    { fetch(:current_path) }
