@@ -31,8 +31,8 @@ default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.2-p290@tugowa gemset
 default_environment["PATH"]         = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/tugowa/.rvm/bin"
-default_environment["GEM_HOME"]     = "--"
-default_environment["GEM_PATH"]     = "--"
+default_environment["GEM_HOME"]     = "/home/tugowa/.rvm/gems/ruby-1.9.3-p0"
+default_environment["GEM_PATH"]     = "/home/tugowa/.rvm/gems/ruby-1.9.3-p0:/home/tugowa/.rvm/gems/ruby-1.9.3-p0@global"
 default_environment["RUBY_VERSION"] = "ruby-1.9.3-p0"
 
 default_run_options[:shell] = 'bash'
