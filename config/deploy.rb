@@ -2,7 +2,7 @@
 require "bundler/capistrano"
 
 set :scm,             :git
-set :repository,      "ssh://tugowa@tugowa.com:7479/home/tugowa/www"
+set :repository,      "git@github.com:lactose/tugowa.git"
 set :branch,          "origin/master"
 set :migrate_target,  :current
 set :ssh_options,     { :forward_agent => true }
