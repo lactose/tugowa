@@ -17,3 +17,7 @@
 # custom ignores
 /config/database.yml
 unicorn.sh
+
+# added precompile to deploy script, also
+# this should not really exist in development
+/public/assets
