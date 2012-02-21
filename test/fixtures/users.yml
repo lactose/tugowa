@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  nick: MyString
+  answers_r: 1
+  answers_w: 1
+  wins: 1
+  losses: 1
+
+two:
+  name: MyString
+  email: MyString
+  nick: MyString
+  answers_r: 1
+  answers_w: 1
+  wins: 1
+  losses: 1
