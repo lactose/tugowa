@@ -1,4 +1,6 @@
 Www::Application.routes.draw do
+  resources :teams
+
   resources :users
 
   get "home/index"

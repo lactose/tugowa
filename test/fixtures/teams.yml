@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  wins: 1
+  losses: 1
+  correct: 1
+  incorrect: 1
+  creator_id: 1
+  name: MyString
+
+two:
+  wins: 1
+  losses: 1
+  correct: 1
+  incorrect: 1
+  creator_id: 1
+  name: MyString
