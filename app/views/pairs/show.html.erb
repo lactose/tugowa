@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @pair.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @pair.answer %>
+</p>
+
+<p>
+  <b>Choice a:</b>
+  <%= @pair.choice_a %>
+</p>
+
+<p>
+  <b>Choice b:</b>
+  <%= @pair.choice_b %>
+</p>
+
+<p>
+  <b>Choice c:</b>
+  <%= @pair.choice_c %>
+</p>
+
+<p>
+  <b>Choice d:</b>
+  <%= @pair.choice_d %>
+</p>
+
+<p>
+  <b>Sheet:</b>
+  <%= @pair.sheet_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pair_path(@pair) %> |
+<%= link_to 'Back', pairs_path %>

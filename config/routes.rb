@@ -1,4 +1,12 @@
 Www::Application.routes.draw do
+  resources :instances
+
+  resources :pairs
+
+  resources :sheets
+
+  resources :topics
+
   resources :teams
 
   resources :users

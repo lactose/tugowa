@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rounds:</b>
+  <%= @instance.rounds %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @instance.start %>
+</p>
+
+<p>
+  <b>Sheet:</b>
+  <%= @instance.sheet_id %>
+</p>
+
+<p>
+  <b>Team a:</b>
+  <%= @instance.team_a %>
+</p>
+
+<p>
+  <b>Team b:</b>
+  <%= @instance.team_b %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @instance.public %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @instance.creator_id %>
+</p>
+
+<p>
+  <b>Auto assign:</b>
+  <%= @instance.auto_assign %>
+</p>
+
+
+<%= link_to 'Edit', edit_instance_path(@instance) %> |
+<%= link_to 'Back', instances_path %>
