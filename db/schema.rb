@@ -11,7 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223042308) do
+ActiveRecord::Schema.define(:version => 20120224144040) do
+
+  create_table "instances", :force => true do |t|
+    t.integer  "rounds"
+    t.datetime "start"
+    t.integer  "sheet_id"
+    t.integer  "team_a"
+    t.integer  "team_b"
+    t.boolean  "public"
+    t.integer  "creator_id"
+    t.boolean  "auto_assign"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "pairs", :force => true do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.string   "choice_a"
+    t.string   "choice_b"
+    t.string   "choice_c"
+    t.string   "choice_d"
+    t.integer  "sheet_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sheets", :force => true do |t|
+    t.string   "name"
+    t.integer  "creator_id"
+    t.integer  "topic_id"
+    t.boolean  "multichoice", :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "teams", :force => true do |t|
     t.integer  "wins"
@@ -19,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20120223042308) do
     t.integer  "correct"
     t.integer  "incorrect"
     t.integer  "creator_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "topics", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
