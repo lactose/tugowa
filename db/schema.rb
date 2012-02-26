@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226150902) do
+ActiveRecord::Schema.define(:version => 20120226154307) do
 
   create_table "instances", :force => true do |t|
     t.integer  "rounds"
@@ -20,11 +20,14 @@ ActiveRecord::Schema.define(:version => 20120226150902) do
     t.integer  "team_a"
     t.integer  "team_b"
     t.boolean  "public"
-    t.integer  "creator_id"
     t.boolean  "auto_assign"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "instances", ["sheet_id"], :name => "index_instances_on_sheet_id"
+  add_index "instances", ["user_id"], :name => "index_instances_on_user_id"
 
   create_table "pairs", :force => true do |t|
     t.string   "question"
@@ -79,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120226150902) do
     t.integer  "losses"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "team_id"
   end
 
 end
