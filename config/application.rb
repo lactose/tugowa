@@ -56,6 +56,7 @@ module Www
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     # precompile these assets
-    config.assets.precompile += ['bootstrap.css']
+    config.assets.precompile += %w( bootstrap.css )
+    config.assets.precompile += %w( application.css )
   end
 end
