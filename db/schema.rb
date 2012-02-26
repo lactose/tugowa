@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225234325) do
+ActiveRecord::Schema.define(:version => 20120226150902) do
 
   create_table "instances", :force => true do |t|
     t.integer  "rounds"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20120225234325) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "pairs", ["sheet_id"], :name => "index_pairs_on_sheet_id"
+
   create_table "sheets", :force => true do |t|
     t.string   "name"
     t.integer  "topic_id"
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120225234325) do
     t.integer  "user_id"
   end
 
+  add_index "sheets", ["topic_id"], :name => "index_sheets_on_topic_id"
   add_index "sheets", ["user_id"], :name => "index_sheets_on_user_id"
 
   create_table "teams", :force => true do |t|
