@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <title>Tugowa</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -49,14 +48,16 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 
-      <%= yield %>
+  <%= yield %>
 
-</div> <!-- /container -->
-<footer>
-  <p>&copy; scrptr, llc 2012</p>
-</footer>
+  <hr>
+  <footer>
+    <p>&copy; scrptr, llc 2012</p>
+  </footer>
+</div><!--/.fluid-container-->
+
 <script>
   var _gaq=[['_setAccount','UA-29517328-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
