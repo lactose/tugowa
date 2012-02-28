@@ -1,21 +1,17 @@
 Www::Application.routes.draw do
-  resources :instances
 
-  resources :pairs
-
-  resources :sheets
-
-  resources :topics
-
-  resources :teams
-
-  resources :users
-
-  get "home/index"
+  constraints :ip => "69.164.213.39" do
+    resources :instances
+    resources :pairs
+    resources :sheets
+    resources :topics
+    resources :teams
+    resources :users
+    match '/register' => 'users#new'
+  end
 
   root :to => "home#index"
-
-  match '/register' => 'users#new'
+  get "home/index"
 
 
   # The priority is based upon order of creation:
