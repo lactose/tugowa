@@ -15,7 +15,7 @@ Www::Application.routes.draw do
 
   root :to => "home#index"
 
-  match 'pickle' => 'instances#index'
+  match '/register' => 'users#new'
 
 
   # The priority is based upon order of creation:
