@@ -13,7 +13,7 @@
 <% @sheets.each do |sheet| %>
   <tr>
     <td><%= sheet.name %></td>
-    <td><%= sheet.creator_id %></td>
+    <td><%= sheet.user_id %></td>
     <td><%= sheet.topic_id %></td>
     <td><%= link_to 'Show', sheet %></td>
     <td><%= link_to 'Edit', edit_sheet_path(sheet) %></td>
