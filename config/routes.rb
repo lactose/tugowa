@@ -8,10 +8,11 @@ Www::Application.routes.draw do
     resources :teams
     resources :users
     match '/register' => 'users#new'
+    get "home/index"
+    root :to => "home#index"
   end
 
-  root :to => "home#index"
-  get "home/index"
+  root :to => redirect '/public/403.html'
 
 
   # The priority is based upon order of creation:
