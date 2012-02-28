@@ -15,3 +15,4 @@
 //= require_tree .
 //= require twitter/bootstrap
 //= require scrptr/index
+//= require scrptr/main
