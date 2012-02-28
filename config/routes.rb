@@ -12,7 +12,7 @@ Www::Application.routes.draw do
     root :to => "home#index"
   end
 
-  root :to => redirect '/public/403.html'
+  root :to => redirect('/public/403.html')
 
 
   # The priority is based upon order of creation:
