@@ -1,6 +1,6 @@
 Www::Application.routes.draw do
 
-  constraints :ip => "69.164.213.39" do
+  # constraints :ip => "69.164.213.39" do
     resources :instances
     resources :pairs
     resources :sheets
@@ -10,9 +10,9 @@ Www::Application.routes.draw do
     match '/register' => 'users#new'
     get "home/index"
     root :to => "home#index"
-  end
+  # end
 
-  root :to => redirect('/403.html')
+  # root :to => redirect('/403.html')
 
 
   # The priority is based upon order of creation:
