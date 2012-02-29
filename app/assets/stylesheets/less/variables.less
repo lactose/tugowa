@@ -1,7 +1,13 @@
 // Variables.less
 // Variables to customize the look and feel of Bootstrap
-// Swatch: Slate
+// Swatch: Journal
 // -----------------------------------------------------
+
+
+// CUSTOM VALUES
+// -----------------------------------------------------
+
+@baseBackgroundColor: #FAFAFC;
 
 
 
@@ -9,36 +15,36 @@
 // --------------------------------------------------
 
 // Links
-@linkColor:             @white;
-@linkColorHover:        @white;
+@linkColor:             @textColor;
+@linkColorHover:        @gray;
 
 // Grays
 @black:                 #000;
-@grayDarker:            #272B30;
-@grayDark:              #3A3F44;
-@gray:                  #52575C;
-@grayLight:             #757C82;
-@grayLighter:           #BBBFC2;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #888;
+@grayLight:             #999;
+@grayLighter:           #eee;
 @white:                 #fff;
 
 // Accent colors
-@blue:                  #02A1DD;
-@blueDark:              #108CBB;
-@green:                 #87CA4D;
-@red:                   #9d261d;
-@yellow:                #F6D30D;
-@orange:                #f89406;
-@pink:                  #c3325f;
+@blue:                  #369;
+@blueDark:              darken(@blue, 15%);
+@green:                 #22B24C;
+@red:                   #C00;
+@yellow:                #FCFADB;
+@orange:                #FF7F00;
+@pink:                  #CC99CC;
 @purple:                #7a43b6;
 
 // Typography
-@baseFontSize:          13px;
-@baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@baseFontSize:          14px;
+@baseFontFamily:        'Open Sans', sans-serif;
 @baseLineHeight:        18px;
-@textColor:             @grayLight;
+@textColor:             @grayDarker;
 
 // Buttons
-@primaryButtonBackground:    @grayLight;
+@primaryButtonBackground:    @linkColor;
 
 
 
@@ -48,32 +54,32 @@
 // Z-index master list
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
-@zindexDropdown:          1000;
-@zindexPopover:           1010;
-@zindexTooltip:           1020;
-@zindexFixedNavbar:       1030;
-@zindexModalBackdrop:     1040;
-@zindexModal:             1050;
+@zindexDropdown:        1000;
+@zindexPopover:         1010;
+@zindexTooltip:         1020;
+@zindexFixedNavbar:     1030;
+@zindexModalBackdrop:   1040;
+@zindexModal:           1050;
 
 // Sprite icons path
 @iconSpritePath:          "../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 
 // Input placeholder text color
-@placeholderText:         @grayLight;
+@placeholderText:       @grayLight;
 
 // Hr border color
-@hrBorder:                @grayLight;
+@hrBorder:                @grayLighter;
 
 // Navbar
 @navbarHeight:                    40px;
-@navbarBackground:                @grayDark;
-@navbarBackgroundHighlight:       @gray;
+@navbarBackground:                @baseBackgroundColor;
+@navbarBackgroundHighlight:       @navbarBackground;
 @navbarLinkBackgroundHover:       transparent;
 
 @navbarText:                      @textColor;
-@navbarLinkColor:                 @grayLighter;
-@navbarLinkColorHover:            @grayLighter;
+@navbarLinkColor:                 @linkColor;
+@navbarLinkColorHover:            @linkColor;
 
 // Form states and alerts
 @warningText:             #c09853;
