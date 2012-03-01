@@ -38,3 +38,11 @@ group :development do
 end
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# RSpec may be better
+group :development, :test do
+    gem 'rspec'
+    gem 'rspec-rails'
+    gem 'autotest'
+    gem 'autotest-standalone'
+end 
