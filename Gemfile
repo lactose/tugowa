@@ -40,9 +40,10 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # RSpec may be better
-group :development, :test do
-    gem 'rspec'
-    gem 'rspec-rails'
-    gem 'autotest'
-    gem 'autotest-standalone'
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'autotest'
+  gem 'autotest-standalone'
+  gem 'factory_girl_rails'
 end 
