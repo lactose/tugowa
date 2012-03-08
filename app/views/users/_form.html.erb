@@ -1,5 +1,6 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
   <% if @user.errors.any? %>
+    <% error_cls = "error" %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -9,37 +10,35 @@
       <% end %>
       </ul>
     </div>
+  <% else %>
+    <% error_cls = "" %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group <%= error_cls %>">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="control-group <%= error_cls %>">
+    <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :email %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nick %><br />
-    <%= f.text_field :nick %>
+  <div class="control-group <%= error_cls %>">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :answers_r %><br />
-    <%= f.number_field :answers_r %>
-  </div>
-  <div class="field">
-    <%= f.label :answers_w %><br />
-    <%= f.number_field :answers_w %>
-  </div>
-  <div class="field">
-    <%= f.label :wins %><br />
-    <%= f.number_field :wins %>
-  </div>
-  <div class="field">
-    <%= f.label :losses %><br />
-    <%= f.number_field :losses %>
+  <div class="control-group <%= error_cls %>">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Register" %>
   </div>
 <% end %>

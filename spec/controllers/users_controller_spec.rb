@@ -43,6 +43,11 @@ describe UsersController do
       assigns(:user).should be_a_new(User)
     end
 
+    it "should have the right title" do
+      get :new, {}, valid_session
+      response.should have_selector("title", :content => "Register")
+    end
+
   end
 
   describe "GET 'show'" do
