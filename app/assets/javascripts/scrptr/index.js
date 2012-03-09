@@ -4,4 +4,5 @@
 
 $(document).ready(function() {
   console.log("hello world");
+  //$('.flash').fadeOut('3000');
 });

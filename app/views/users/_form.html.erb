@@ -40,6 +40,6 @@
   </div>
   <div class="form-actions">
     <%= f.submit "Register", :class => "btn btn-primary" %>
-    <button class="btn" href="<%= users_path %>" type="button">Back</button>
+    <%= link_to "Back", users_path, :class => "btn" %>
   </div>
 <% end %>
