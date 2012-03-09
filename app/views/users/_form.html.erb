@@ -38,7 +38,8 @@
       <%= f.password_field :password_confirmation %>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit "Register" %>
+  <div class="form-actions">
+    <%= f.submit "Register", :class => "btn btn-primary" %>
+    <button class="btn" href="<%= users_path %>" type="button">Back</button>
   </div>
 <% end %>
