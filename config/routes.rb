@@ -1,13 +1,19 @@
 Www::Application.routes.draw do
 
+  get "sessions/new"
+
   resources :instances
   resources :pairs
   resources :sheets
   resources :topics
   resources :teams
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+
   
   match '/register' => 'users#new'
+  match '/login' => 'sessions#new'
+  match '/logout' => 'sessions#destroy'
   
   get "home/index"
   

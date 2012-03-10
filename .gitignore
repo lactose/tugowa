@@ -17,6 +17,7 @@
 # custom ignores
 /config/database.yml
 unicorn.sh
+webrat.log
 
 # added precompile to deploy script, also
 # this should not really exist in development

@@ -42,7 +42,11 @@
           <li><a href="#about">Create</a></li>
           <li><a href="#contact">Leaderboard</a></li>
         </ul>
-        <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+        <% if signed_in? %>
+          <p class="navbar-text pull-right">Logged in as <%= link_to @current_user.name, current_user %> | <%= link_to "Logout", logout_path, :method => :delete %></p>
+        <% else %>
+          <p class="navbar-text pull-right"><%= link_to "Login", login_path %></p>
+        <% end %>
       </div><!--/.nav-collapse -->
     </div>
   </div>
