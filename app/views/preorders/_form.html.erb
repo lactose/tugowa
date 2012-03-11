@@ -1,0 +1,17 @@
+<%= form_for(@preorder) do |f| %>
+  <% if @preorder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preorder.errors.count, "error") %> prohibited this preorder from being saved:</h2>
+
+      <ul>
+      <% @preorder.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310234259) do
+ActiveRecord::Schema.define(:version => 20120311182315) do
 
   create_table "instances", :force => true do |t|
     t.integer  "rounds"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20120310234259) do
   end
 
   add_index "pairs", ["sheet_id"], :name => "index_pairs_on_sheet_id"
+
+  create_table "preorders", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "preorders", ["email"], :name => "index_preorders_on_email", :unique => true
 
   create_table "sheets", :force => true do |t|
     t.string   "name"
