@@ -1,7 +1,7 @@
 class PreordersController < ApplicationController
   # GET /preorders
   # GET /preorders.json
-  skip_before_filter :protect
+  skip_before_filter :protect, :only => [:create, :index, :new]
 
   def index
     @title = "tugowa"
