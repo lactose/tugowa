@@ -1,4 +1,6 @@
 require 'digest'
+require 'securerandom'
+
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
@@ -14,7 +16,7 @@ class User < ActiveRecord::Base
   #                     :on           => :update
   # uncomment this line when the form has a tos
   # validates :terms_of_service, :acceptance => true
-  before_save :encrypt_password
+  before_save :encrypt_password, :generate_code
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -29,6 +31,18 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+
+  def self.confirm(email, submitted_code)
+    user = find_by_email(email)
+    # return nil if user.nil?
+    # return user if user.confirm_code == submitted_code
+    if user.confirm_code == submitted_code && !user.nil?
+      user.confirmed = true
+      return user
+    else
+      return nil
+    end
   end
 
 
@@ -50,5 +64,11 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
+
+    def generate_code
+      self.confirm_code = SecureRandom.hex(13)
+    end
+
+    
 
 end

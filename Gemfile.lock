@@ -173,6 +173,7 @@ DEPENDENCIES
   gravatar_image_tag
   jquery-rails
   less-rails-bootstrap
+  mail
   pg
   rails (= 3.2.1)
   rspec

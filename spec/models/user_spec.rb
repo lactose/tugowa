@@ -118,6 +118,16 @@ describe User do
       end
     end
 
+    describe "confirmation code" do
+      it "should generate a confirmation code" do
+        @user.confirm_code.should_not be_blank
+      end
+
+      it "should not be confirmed by default" do
+        @user.confirmed.should == false 
+      end
+    end
+
   end
 
 

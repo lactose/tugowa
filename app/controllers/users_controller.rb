@@ -46,7 +46,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        sign_in @user
+        UserMailer.registration_confirmation(@user).deliver
+        #sign_in @user
         format.html { 
           redirect_to @user
           flash[:success] = 'Welcome to tugowa!' 
@@ -87,4 +88,24 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # CONFIRM /users/dsaj3i12i123
+  def confirm
+    @user = User.confirm(params[:email], params[:confirm_code])
+    
+    if @user
+      sign_in @user
+      respond_to do |format|
+        format.html { 
+          redirect_to @user
+          flash[:success] = 'User was successfully confirmed.' 
+        }
+        format.json { head :no_content }
+      end
+    else
+      # fill in if user is not confirmed
+    end
+   
+  end
+
 end
