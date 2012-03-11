@@ -121,9 +121,17 @@ describe UsersController do
         post :create, :user => @attr
         flash[:success].should =~ /welcome to tugowa/i
       end
-      it "should sign the user in" do
+      it "should not sign the user in" do
         post :create, :user => @attr
-        controller.should be_signed_in
+        controller.should_not be_signed_in
+      end
+      it "should send the confirmation email" do
+        post :create, :user => @attr
+        ActionMailer::Base.deliveries.empty?.should == false
+      end
+      it "should have the correct subject" do
+        post :create, :user => @attr
+        ActionMailer::Base.deliveries.first.subject.should =~ /Confirmation/i
       end
     end
   end
