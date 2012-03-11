@@ -18,6 +18,7 @@ Www::Application.routes.draw do
   match '/logout' => 'sessions#destroy'
   match '/confirm' => 'users#confirm'
   match '/teaser' => 'preorders#new'
+  match '/thanks' => 'preorders#index'
   
   get "home/index"
   

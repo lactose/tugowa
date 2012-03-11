@@ -8,7 +8,7 @@ class PreordersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @preorder }
+      #format.json { render json: @ }
     end
   end
   def create
@@ -17,7 +17,7 @@ class PreordersController < ApplicationController
     respond_to do |format|
       if @preorder.save
         format.html {
-          redirect_to @preorder
+          redirect_to thanks_path
           flash[:success] = 'Thanks! We will let you know when things are cooking.'
         }
         format.json { render json: @preorder, status: :created, location: @preorder }
