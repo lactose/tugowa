@@ -22,7 +22,7 @@ class PreordersController < ApplicationController
         }
         format.json { render json: @preorder, status: :created, location: @preorder }
       else
-        format.html { render action: "index" }
+        format.html { render action: "new" }
         @title = "tugowa"
         format.json { render json: @preorder.errors, status: :unprocessable_entity }
       end
