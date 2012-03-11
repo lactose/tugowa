@@ -32,7 +32,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the web server
-gem 'unicorn'
+gem 'unicorn', '4.1.1'
 
 # Deploy with Capistrano
 group :development do 

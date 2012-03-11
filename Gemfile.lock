@@ -152,10 +152,10 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    unicorn (4.2.0)
-      kgio (~> 2.6)
+    unicorn (4.1.1)
+      kgio (~> 2.4)
       rack
-      raindrops (~> 0.7)
+      raindrops (~> 0.6)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -180,5 +180,5 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
-  unicorn
+  unicorn (= 4.1.1)
   webrat
