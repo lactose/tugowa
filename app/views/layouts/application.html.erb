@@ -38,9 +38,9 @@
       <a class="brand" href="#">tugowa</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="#">Join</a></li>
-          <li><a href="#about">Create</a></li>
-          <li><a href="#contact">Leaderboard</a></li>
+          <li class="active"><a href="#join">Join</a></li>
+          <li><a href="#create">Create</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
         </ul>
         <% if signed_in? %>
           <p class="navbar-text pull-right">Logged in as <%= link_to @current_user.name, current_user %> | <%= link_to "Logout", logout_path, :method => :delete %></p>
