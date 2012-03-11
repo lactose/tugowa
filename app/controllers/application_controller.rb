@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if not @ips.include? request.remote_ip
       # if the user is coming from an outside ip, redirect
       # redirect_to "/403.html"
-      redirect_to new_preorder_path
+      redirect_to teaser_path
       flash[:notice] = "The world isn't ready for tugowa yet. Be the first to know by giving us your email below!."
       return
     end
