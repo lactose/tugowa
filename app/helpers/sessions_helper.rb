@@ -1,8 +1,13 @@
 module SessionsHelper
   
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
-    self.current_user = user if user.confirmed
+    if user.confirmed 
+      cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+      self.current_user = user
+      return true
+    else
+      return false
+    end
   end
 
   def sign_out
