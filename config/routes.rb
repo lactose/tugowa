@@ -1,5 +1,13 @@
 Www::Application.routes.draw do
 
+  get "confirmation/edit"
+
+  get "confirmation/new"
+
+  get "confirmation/create"
+
+  get "confirmation/index"
+
   resources :preorders
 
   get "sessions/new"
