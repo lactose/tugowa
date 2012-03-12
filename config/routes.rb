@@ -9,7 +9,11 @@ Www::Application.routes.draw do
   resources :sheets
   resources :topics
   resources :teams
-  resources :users
+  resources :users do
+    member do
+      get 'confirm'
+    end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
 
   

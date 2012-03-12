@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       # Sign the user in and redirect to the user's show page.
       if sign_in user
         flash.now[:success] = "Successful login."
-        redirect_to user
+        redirect_back_or user
       else
         flash.now[:error] = "You need to confirm your account."
         @title = "Login"
