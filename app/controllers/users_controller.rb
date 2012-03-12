@@ -105,7 +105,7 @@ class UsersController < ApplicationController
       sign_in @user
       respond_to do |format|
         format.html { 
-          redirect_to edit_user_path(@user)
+          #redirect_to edit_user_path(@user)
           flash[:success] = 'User was successfully confirmed.' 
         }
         format.json { head :no_content }
