@@ -1,6 +1,6 @@
 <%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
   <% if @user.errors.any? %>
-    <% error_cls = "error" %>
+    <% error_cls = "" %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -15,29 +15,23 @@
   <% end %>
 
   <div class="control-group <%= error_cls %>">
-    <%= f.label :name, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :name %>
-    </div>
-  </div>
-  <div class="control-group <%= error_cls %>">
     <%= f.label :email, :class => "control-label" %>
     <div class="controls">
       <%= f.text_field :email %>
     </div>
   </div>
-  <div class="control-group <%= error_cls %>">
+  <!--div class="control-group <%= error_cls %>">
     <%= f.label :password, :class => "control-label" %>
     <div class="controls">
-      <%= f.password_field :password %>
+      <%= f.hidden_field :password %>
     </div>
   </div>
   <div class="control-group <%= error_cls %>">
     <%= f.label :password_confirmation, :class => "control-label" %>
     <div class="controls">
-      <%= f.password_field :password_confirmation %>
+      <%= f.hidden_field :password_confirmation %>
     </div>
-  </div>
+  </div-->
   <div class="form-actions">
     <%= f.submit "Register", :class => "btn btn-primary" %>
     <%= link_to "Back", users_path, :class => "btn" %>

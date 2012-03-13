@@ -52,11 +52,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        sign_out
         UserMailer.registration_confirmation(@user).deliver
         #sign_in @user
         format.html { 
           redirect_to @user
-          flash[:success] = 'Welcome to tugowa!' 
+          flash[:notice] = "An email has been sent to confirm your account." 
         }
         format.json { render json: @user, status: :created, location: @user }
       else
