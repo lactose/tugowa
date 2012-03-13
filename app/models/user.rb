@@ -13,10 +13,11 @@ class User < ActiveRecord::Base
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..40 }
-  #                     :on           => :update
+                       #:on           => :update
   # uncomment this line when the form has a tos
   # validates :terms_of_service, :acceptance => true
-  before_save :encrypt_password, :generate_code
+  before_save :encrypt_password #if password_required?
+  before_save :generate_code
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -44,6 +45,8 @@ class User < ActiveRecord::Base
       return nil
     end
   end
+
+
 
 
   private

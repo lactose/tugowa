@@ -102,6 +102,7 @@ class UsersController < ApplicationController
     @user = User.confirm(params[:email], params[:confirm_code])
     
     if @user
+      #@user.updating_password = true
       sign_in @user
       respond_to do |format|
         format.html { 
