@@ -16,8 +16,7 @@ class User < ActiveRecord::Base
                        :on           => :update
   # uncomment this line when the form has a tos
   # validates :terms_of_service, :acceptance => true
-  before_save :encrypt_password #if password_required?
-  before_save :generate_code
+  before_save :encrypt_password, :generate_code #if password_required?
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -36,10 +35,9 @@ class User < ActiveRecord::Base
 
   def self.confirm(email, submitted_code)
     user = find_by_email(email)
-    # return nil if user.nil?
-    # return user if user.confirm_code == submitted_code
     if user.confirm_code == submitted_code && !user.nil?
-      user.confirmed = true
+      #user.confirmed = true
+      #user.save(:validate => false)
       return user
     else
       return nil

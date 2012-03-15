@@ -1,45 +1,30 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate, :only => [:edit, :update]
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :authenticate, :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
 
-  # GET /users
-  # GET /users.json
+  respond_to :html, :json, :xml
+
   def index
     @users = User.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
+    respond_with @users
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
     @title = @user.name
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
+    respond_with @user
   end
 
-  # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
     @title = "Register"
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
+    respond_with @user
   end
 
-  # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
     @title = "Edit"
@@ -52,12 +37,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        sign_out
         UserMailer.registration_confirmation(@user).deliver
-        #sign_in @user
         format.html { 
-          redirect_to @user
-          flash[:notice] = "An email has been sent to confirm your account." 
+          redirect_to root_path, :notice => "An email has been sent to confirm your account." 
         }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -103,19 +85,36 @@ class UsersController < ApplicationController
     @user = User.confirm(params[:email], params[:confirm_code])
     
     if @user
-      #@user.updating_password = true
-      sign_in @user
       respond_to do |format|
         format.html { 
-          #redirect_to edit_user_path(@user)
-          flash[:success] = 'User was successfully confirmed.' 
+          flash[:notice] = 'Almost there! Just complete your profile to finish confirming.' 
         }
         format.json { head :no_content }
       end
     else
-      # fill in if user is not confirmed
+      redirect_to login_path, :error => "The confirmation code was incorrect."
     end
    
+  end
+
+  def verify
+    @user = User.find(params[:id])
+    sign_out
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        @user.confirmed = true
+        @user.save
+        sign_in @user
+        format.html { redirect_to @user, notice: 'Profile updated.' }
+        format.json { head :no_content }
+      else
+        @title = "Edit"
+        format.html { render action: "confirm" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   private

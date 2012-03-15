@@ -1,37 +1,12 @@
 <%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
-  <% if @user.errors.any? %>
-    <% error_cls = "" %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% else %>
-    <% error_cls = "" %>
-  <% end %>
-
-  <div class="control-group <%= error_cls %>">
+  <%= render 'shared/error_messages', :object => f.object %>
+  <!--div class="control-group">
     <%= f.label :email, :class => "control-label" %>
     <div class="controls">
       <%= f.text_field :email %>
     </div>
-  </div>
-  <!--div class="control-group <%= error_cls %>">
-    <%= f.label :password, :class => "control-label" %>
-    <div class="controls">
-      <%= f.hidden_field :password %>
-    </div>
-  </div>
-  <div class="control-group <%= error_cls %>">
-    <%= f.label :password_confirmation, :class => "control-label" %>
-    <div class="controls">
-      <%= f.hidden_field :password_confirmation %>
-    </div>
   </div-->
+  <%= form_div(f.label(:email, :class => "control-label"), f.text_field(:email)) %>
   <div class="form-actions">
     <%= f.submit "Register", :class => "btn btn-primary" %>
     <%= link_to "Back", users_path, :class => "btn" %>

@@ -13,6 +13,7 @@ Www::Application.routes.draw do
   resources :users do
     member do
       get 'confirm'
+      put 'verify'
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]

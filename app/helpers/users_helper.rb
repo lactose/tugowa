@@ -5,5 +5,11 @@ module UsersHelper
                                             :gravatar => options)
   end
 
+  def form_div(label, field)
+    content_tag :div, :class => "control-group" do
+      raw(label + content_tag(:div, field, :class => "controls"))
+    end
+  end
+
 
 end
