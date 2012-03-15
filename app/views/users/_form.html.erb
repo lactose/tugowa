@@ -1,11 +1,5 @@
 <%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <!--div class="control-group">
-    <%= f.label :email, :class => "control-label" %>
-    <div class="controls">
-      <%= f.text_field :email %>
-    </div>
-  </div-->
   <%= form_div(f.label(:email, :class => "control-label"), f.text_field(:email)) %>
   <div class="form-actions">
     <%= f.submit "Register", :class => "btn btn-primary" %>
