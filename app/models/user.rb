@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   # uncomment this line when the form has a tos
   # validates :terms_of_service, :acceptance => true
   before_save :encrypt_password, :generate_code #if password_required?
+  after_create :registration_notification
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -68,6 +69,10 @@ class User < ActiveRecord::Base
 
     def generate_code
       self.confirm_code = SecureRandom.hex(13)
+    end
+    
+    def registration_notification
+      UserMailer.registration_confirmation(self).deliver
     end
 
     
