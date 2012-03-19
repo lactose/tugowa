@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.registration_confirmation(@user).deliver
+        #UserMailer.registration_confirmation(@user).deliver
         format.html { 
           redirect_to root_path, :notice => "An email has been sent to confirm your account." 
         }
