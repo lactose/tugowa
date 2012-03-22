@@ -28,6 +28,8 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @title = "Edit"
+
+    respond_with @user
   end
 
   # POST /users
@@ -37,7 +39,6 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        #UserMailer.registration_confirmation(@user).deliver
         format.html { 
           redirect_to root_path, :notice => "An email has been sent to confirm your account." 
         }
@@ -55,16 +56,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Profile updated.' }
-        format.json { head :no_content }
-      else
-        @title = "Edit"
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'Profile updated.'
     end
+
+    respond_with @user
   end
 
   # DELETE /users/1
@@ -73,11 +69,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "User destroyed."
-
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+  
+    respond_with @user
   end
 
   # CONFIRM /users/dsaj3i12i123
