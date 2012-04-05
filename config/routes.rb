@@ -25,6 +25,7 @@ Www::Application.routes.draw do
   match '/confirm' => 'users#confirm'
   match '/teaser' => 'preorders#new'
   match '/thanks' => 'preorders#index'
+  match '/play' => 'play#index'
   
   get "home/index"
   
