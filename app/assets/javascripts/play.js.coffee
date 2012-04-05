@@ -2,7 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$('#chatterform').submit ->
-  $('#chatterbox').append $('#chatter').val()
-  $('#chatter').val('')
-  return false
+$(document).ready ->
+  $('#chatterform').submit (e) ->
+    e.preventDefault()
+    $('#chatterbox').append $('#chatter').val() + "<br />"
+    $('#chatter').val('')
+    return false
