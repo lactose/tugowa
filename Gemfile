@@ -7,7 +7,6 @@ gem 'gravatar_image_tag'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'eventmachine'
 gem 'mail'
 
 #gem 'em-websocket'

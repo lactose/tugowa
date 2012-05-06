@@ -6,5 +6,29 @@ $(document).ready ->
   $('#chatterform').submit (e) ->
     e.preventDefault()
     $('#chatterbox').append $('#chatter').val() + "<br />"
+    send($('#chatter').val())
     $('#chatter').val('')
     return false
+
+  poll = ->
+    $.ajax({
+      url: "localhost:8081", 
+      timeout: 30000,
+      #data: {msg: 'hello'},
+      dataType: 'jsonp',
+      success: (result) ->
+        $('#chatterbox').append result + "<br />"
+      complete: ->
+        poll()
+    })
+  send = (msg) ->
+    $.ajax({
+      url: "localhost:8081",
+      timeout: 30000,
+      data: {msg: msg},
+      dataType: 'jsonp',
+      success: (result) ->
+        $('#chatterbox').append data.msg + "<br />"
+    })
+
+  poll()
