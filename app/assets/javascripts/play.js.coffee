@@ -23,12 +23,12 @@ $(document).ready ->
     })
   send = (msg) ->
     $.ajax({
-      url: "localhost:8081",
+      url: "localhost:8081/recv?msg=" + msg,
       timeout: 30000,
       data: {msg: msg},
       dataType: 'jsonp',
       success: (result) ->
-        $('#chatterbox').append data.msg + "<br />"
+        $('#chatterbox').append result + "<br />"
     })
 
   poll()
