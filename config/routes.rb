@@ -1,6 +1,5 @@
 Www::Application.routes.draw do
 
-
   resources :preorders
 
   get "sessions/new"

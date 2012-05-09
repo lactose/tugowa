@@ -12,9 +12,8 @@ $(document).ready ->
 
   poll = ->
     $.ajax({
-      url: "localhost:8081", 
+      url: "api.tugowa.com/recv?msg=ping", 
       timeout: 30000,
-      #data: {msg: 'hello'},
       dataType: 'jsonp',
       success: (result) ->
         $('#chatterbox').append result + "<br />"
@@ -23,7 +22,7 @@ $(document).ready ->
     })
   send = (msg) ->
     $.ajax({
-      url: "localhost:8081/recv?msg=" + msg,
+      url: "api.tugowa.com/recv?msg=" + msg,
       timeout: 30000,
       data: {msg: msg},
       dataType: 'jsonp',
