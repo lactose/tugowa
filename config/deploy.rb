@@ -43,6 +43,7 @@ namespace :deploy do
     update
     migrate
     restart
+    nodecycle
   end
 
   desc "Setup your git-based deployment app"
@@ -99,6 +100,11 @@ namespace :deploy do
       asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(" ")
       run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
     end
+  end
+
+  desc "Recycle node background service" 
+  task :nodecycle, :except => { :no_release => true } do
+    run "forever restart /home/tugowa/www/current/app/servers/instance/app.js"
   end
 
   desc "Zero-downtime restart of Unicorn"
