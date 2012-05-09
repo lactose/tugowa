@@ -15,6 +15,7 @@ $(document).ready ->
       url: "api.tugowa.com/recv?msg=ping", 
       timeout: 30000,
       dataType: 'jsonp',
+      crossDomain: 'true',
       success: (result) ->
         $('#chatterbox').append result + "<br />"
       complete: ->
@@ -25,6 +26,7 @@ $(document).ready ->
       url: "api.tugowa.com/recv?msg=" + msg,
       timeout: 30000,
       data: {msg: msg},
+      crossDomain: 'true',
       dataType: 'jsonp',
       success: (result) ->
         $('#chatterbox').append result + "<br />"
