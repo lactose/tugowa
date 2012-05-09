@@ -4,10 +4,10 @@
  */
 
 var express = require('express')
-  , routes = require('./routes');
+  , routes = require('./routes')
+  , fs = require('fs');
 
 var app = module.exports = express.createServer();
-var newUmask = process.umask(0775);
 var port;
 
 // Configuration
@@ -37,6 +37,6 @@ app.get('/', routes.index);
 app.get('/recv', routes.recv);
 
 app.listen(port, function(){
-  process.umask(newUmask);
+  if( isNaN(port) ) fs.chmod('/tmp/tugowa-api.sock', 0775);
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
