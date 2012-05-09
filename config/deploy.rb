@@ -59,11 +59,6 @@ namespace :deploy do
     migrate
   end
 
-  task :node do
-    update
-    nodecycle
-  end
-
   task :update do
     transaction do
       update_code
