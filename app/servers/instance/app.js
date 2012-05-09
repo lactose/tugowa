@@ -36,7 +36,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/recv', routes.recv);
 
-app.listen(port, function(){
-  if( isNaN(port) ) fs.chmod('/tmp/tugowa-api.sock', 0775);
+app.listen('/tmp/tugowa-api.sock', function(){
+  //if( isNaN(port) ) fs.chmod('/tmp/tugowa-api.sock', 0775);
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
