@@ -7,6 +7,8 @@ var express = require('express')
   , routes = require('./routes');
 
 var app = module.exports = express.createServer();
+var newUmask = process.umask(0775);
+var port;
 
 // Configuration
 
@@ -21,10 +23,12 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  port = 8090;
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler());
+  port = '/tmp/tugowa-api.sock';
 });
 
 // Routes
@@ -32,6 +36,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/recv', routes.recv);
 
-app.listen('/tmp/tugowa-api.sock', function(){
+app.listen(port, function(){
+  process.umask(newUmask);
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
