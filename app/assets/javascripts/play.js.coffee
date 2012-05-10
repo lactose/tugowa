@@ -12,7 +12,7 @@ $(document).ready ->
 
   poll = ->
     $.ajax({
-      url: "api.tugowa.com/recv?msg=ping", 
+      url: "http://api.tugowa.com/recv?msg=ping", 
       timeout: 30000,
       dataType: 'jsonp',
       crossDomain: 'true',
@@ -23,7 +23,7 @@ $(document).ready ->
     })
   send = (msg) ->
     $.ajax({
-      url: "api.tugowa.com/recv?msg=" + msg,
+      url: "http://api.tugowa.com/recv?msg=" + msg,
       timeout: 30000,
       data: {msg: msg},
       crossDomain: 'true',
