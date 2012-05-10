@@ -17,7 +17,7 @@ $(document).ready ->
       dataType: 'jsonp',
       crossDomain: 'true',
       success: (result) ->
-        $('#chatterbox').append result + "<br />"
+        $('#chatterbox').append(result.toString()) + "<br />"
       complete: ->
         poll()
     })
